@@ -1,4 +1,21 @@
 package characters;
+import attacks.AxeAttack2;
+import attacks.AxeAttack3;
+import attacks.AxeAttack4;
+import attacks.Fire;
+import attacks.LanceAttack2;
+import attacks.LanceAttack3;
+import attacks.LanceAttack4;
+import attacks.Lightning;
+import attacks.SwordAttack2;
+import attacks.SwordAttack3;
+import attacks.SwordAttack4;
+import attacks.Water;
+import attacks.axeSlash;
+import attacks.lanceStab;
+import attacks.magicSpell;
+import attacks.swordSlash;
+import characters.Character.Weapon;
 import dice.*;
 
 public class Enemy extends Character{
@@ -40,10 +57,34 @@ public class Enemy extends Character{
 	{
 		switch(choiceDice2.roll())
 		{
-		case 1: this.weapon = Weapon.sword; break;
-		case 2:  this.weapon = Weapon.axe; break;
-		case 3: this.weapon = Weapon.lance; break;
-		case 4: this.weapon = Weapon.magic; break;
+		case 1: 
+			weapon = Weapon.sword; 
+			attackList[0] = new swordSlash();
+			attackList[1] = new SwordAttack2();
+			attackList[2] = new SwordAttack3();
+			attackList[3] = new SwordAttack4();
+			break;
+		case 2: 
+			weapon = Weapon.axe; 
+			attackList[0] = new axeSlash();
+			attackList[1] = new AxeAttack2();
+			attackList[2] = new AxeAttack3();
+			attackList[3] = new AxeAttack4(); 
+			break;
+		case 3: 
+			weapon = Weapon.lance; 
+			attackList[0] = new lanceStab();
+			attackList[1] = new LanceAttack2();
+			attackList[2] = new LanceAttack3();
+			attackList[3] = new LanceAttack4();
+			break;
+		case 4: 
+			weapon = Weapon.magic; 
+			attackList[0] = new magicSpell();
+			attackList[1] = new Fire();
+			attackList[2] = new Water();
+			attackList[3] = new Lightning(); 
+			break;
 		}
 	}
 	public void setAttacks() 
@@ -51,16 +92,26 @@ public class Enemy extends Character{
 	public void setItems() 
 	{}
 	public int chooseAction()
+
 	{
-		int choice = 0;
-		switch(choiceDice1.roll())
-		{
-		case 1: case 2: choice = 1;
-		case 3: case 4: choice = 2;
-		case 5: case 6: choice = 3;
+
+		             int choice = 0;
+
+		             switch(choiceDice1.roll())
+
+		             {
+
+		             case 1: case 2: choice = 1; break;
+
+		             case 3: case 4: choice = 2; break;
+
+		             case 5: case 6: choice = 3; break;
+
+		             }
+
+		             return choice;
+
 		}
-		return choice;
-	}
     public int chooseAttack() 
     {
 		int choice = 0;

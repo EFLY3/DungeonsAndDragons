@@ -74,8 +74,8 @@ public class Game
 		switch (attacker.chooseAction())
 		{
 		case 1: int hpLoss = defender.loseHP(attacker.chooseAttack()); System.out.println(defender.getName() + " lost " + hpLoss + " hp."); break;
-		case 2: attacker.defend(); System.out.println(attacker.getName() + " is defending this turn!");break;
-		case 3: int recover = attacker.chooseItem(); System.out.println(attacker.getName() + " recovered" + recover + " hp."); break;
+		case 2: attacker.defend();break;
+		case 3: int recover = attacker.chooseItem(); attacker.gainHP(recover); System.out.println(attacker.getName() + " recovered" + recover + " hp."); break;
 		}
 	}
    

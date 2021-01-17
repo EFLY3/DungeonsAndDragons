@@ -6,12 +6,13 @@ public class playGame {
  {
 	 Scanner scan = new Scanner(System.in);
 	 String continueGame = "y";
-	do {
+	 while (continueGame.equalsIgnoreCase("Y")){
 		Game game = new Game();
 		game.run();
 		System.out.println("Would you like to play again? Press y for yes, anything else for no.");
 		continueGame = scan.nextLine();
-		} while (continueGame == "Y" || continueGame == "y");
-	 	scan.close();
+		} 
+		System.out.println("Thank you for playing!");
+		scan.close();
  }
 }

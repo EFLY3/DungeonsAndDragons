@@ -1,4 +1,6 @@
 package characters;
+import java.util.ArrayList;
+
 import attacks.*;
 import items.*;
 import dice.*;
@@ -13,8 +15,10 @@ abstract public class Character {
 	characterClass charaClass;
 	Weapon weapon;
 	int currentHP, BASEHP, atk, def;
-	public Attack[] attackList= {new swordSlash(), new lanceStab(), new axeSlash(), new magicSpell()};
-	public Item[] itemList={new potion(), new superPotion(), new hyperPotion()};
+	public Attack[] attackList= new Attack[4];
+	public Item[] itemList = {new potion(), new superPotion(), new hyperPotion()};
+	//public ArrayList<Item> itemList = new ArrayList<Item>();
+	//itemList.add(new potion());
 	Dice20 d20;
 	
 	
